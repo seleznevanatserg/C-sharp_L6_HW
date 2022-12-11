@@ -7,16 +7,16 @@ using static UserMethods.Method;
 
 Console.WriteLine($"How many number you want entered?");
 int usersLenghtArray = InputIntNumberTryParse();
-while(usersLenghtArray <= 0) // отсеивание значений <=0, пока юзер гнормально не введёт.
+while(usersLenghtArray <= 0) // отсеивание значений <=0, пока юзер нормально не введёт.
 {
     Console.WriteLine($"Entered unacceptable number. Need number > 0");
     usersLenghtArray = InputIntNumberTryParse(); 
 }
 
 int[] arrayEnteredUsersNumbers = CreatedArrayUserEntered(usersLenghtArray);
-int counterEnteredZero = CounterUserEnteredZero(arrayEnteredUsersNumbers);
+int result = CounterNumbersMoreThenZeroForUserEnter(arrayEnteredUsersNumbers);
 
-Console.WriteLine($"{counterEnteredZero} -- ammount numbers = 0");
+Console.WriteLine($"{result} -- ammount numbers > 0");
 
 
 // метод создание массива путём ввода с клавиатуры
@@ -31,12 +31,12 @@ int[] CreatedArrayUserEntered (int enteredNumber)
     return array;
 }
 // метод счётчика количество элементов массива с значением 0
-int CounterUserEnteredZero(int[] enteredArray)
+int CounterNumbersMoreThenZeroForUserEnter(int[] enteredArray)
 {
     int count = 0;
     for(int i = 0; i < enteredArray.Length; i++)
     {
-        if (enteredArray[i] == 0) count++;
+        if (enteredArray[i] > 0) count++;
     }
     return count;
 }
