@@ -16,8 +16,16 @@ double k2 = InputDoubleNumberTryParse();
 Console.Write("Enter b2: ");
 double b2 = InputDoubleNumberTryParse();
 Console.WriteLine($"y = {k1} * x + {b1}, y = {k2} * x + {b2};");
-
 Console.WriteLine("");
+
+while (k1 - k2 == 0) // Проверка знаменателя на равенство 0. Ввод, пока к1 - к2 будет неравно 0.
+{
+    Console.WriteLine("k1 - k2 = 0. Enter again k1 and k2.");
+    Console.Write("Enter k1: ");
+    k1 = InputDoubleNumberTryParse();
+    Console.Write("Enter k2: ");
+    k2 = InputDoubleNumberTryParse();
+};
 double x = (b2 - b1) / (k1 - k2);
 double y = k2 * x + b2;
 Console.WriteLine($"(x, y) = ({x}, {y})");
